@@ -65,9 +65,9 @@ function enableCam(event) {
 
 var model = undefined;
 
-//mdel_url = 'https://metatatt.github.io/simon.json'
+mdel_url = 'https://metatatt.github.io/simon.json'
 
-model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
+//model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
 //Call load function
 asyncLoadModel(model_url);
 
@@ -77,7 +77,7 @@ async function asyncLoadModel(model_url) {
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = 'Start camera';
+    enableWebcamButton.innerHTML = 'Start Tatt Cam (allow access)';
 }
 
 
@@ -147,11 +147,14 @@ const width_ = (maxX-minX).toFixed(0);
         if (score > 70 && score < 100){
             const highlighter = document.createElement('div');
             highlighter.setAttribute('class', 'highlighter');
-            highlighter.style = 'left: ' + minX + 'px; ' +
+			
+			//向右 50
+            highlighter.style = 'left: ' + minX+50 + 'px; ' +
                 'top: ' + minY + 'px; ' +
                 'width: ' + width_ + 'px; ' +
                 'height: ' + height_ + 'px;';
-            highlighter.innerHTML = '<p>'+Math.round(score) + '% ' + 'Your Object Name'+'</p>';
+            highlighter.innerHTML = '<p>  '+Math.round(score) + '% matched with'+'</p>';
+			highlighter.innerHTML = '<p>  '+predictionClasses+' -match'+'</p>';
             liveView.appendChild(highlighter);
             children.push(highlighter);
         }
