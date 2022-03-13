@@ -65,19 +65,22 @@ function enableCam(event) {
 
 var model = undefined;
 
-mdel_url = 'https://metatatt.github.io/simon.json'
+//mdel_url = 'https://metatatt.github.io/simon.json'
 
-//model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
+model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
+
 //Call load function
 asyncLoadModel(model_url);
 
 //Function Loads the GraphModel type model of
 async function asyncLoadModel(model_url) {
-    model = await tf.loadGraphModel(model_url);
+    import * as tf from '@tensorflow/tfjs';
+	model = await tf.loadGraphModel(model_url);
     console.log('Model loaded');
-    //Enable start button:
+    
+	//Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = 'Start Tatt Cam (allow access)';
+    enableWebcamButton.innerHTML = 'Start Tatt Cam‘;
 }
 
 
