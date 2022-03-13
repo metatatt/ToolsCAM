@@ -61,8 +61,6 @@ function enableCam(event) {
   });
 }
 
-
-
 var model = undefined;
 
 //mdel_url = 'https://metatatt.github.io/simon.json'
@@ -80,7 +78,7 @@ async function asyncLoadModel(model_url) {
     
 	//Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = 'Start Tatt Cam‘;
+    enableWebcamButton.innerHTML = 'Start 2 Tatt...‘;
 }
 
 
