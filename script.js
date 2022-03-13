@@ -74,7 +74,7 @@ async function asyncLoadModel(model_url) {
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = 'Simon';
+    enableWebcamButton.innerHTML = 'Simon Go';
 }
 
 
@@ -148,7 +148,7 @@ const width_ = (maxX-minX).toFixed(0);
                 'top: ' + minY + 'px; ' +
                 'width: ' + width_ + 'px; ' +
                 'height: ' + height_ + 'px;';
-            highlighter.innerHTML = '<p>'+Math.round(score) + '% ' +predictionClasses+'Your Object Name'+'</p>';
+            highlighter.innerHTML = '<p>   '+Math.round(score) + '% ' +'<br>'+'Your Object Name'+'</p>';
             liveView.appendChild(highlighter);
             children.push(highlighter);
         }
