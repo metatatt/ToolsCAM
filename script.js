@@ -65,7 +65,7 @@ function enableCam(event) {
 
 var model = undefined;
 
-mdel_url = ‘https://metatatt.github.io/simon.json’
+mdel_url = 'simon.json'
 
 //原本 model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
 //Call load function
