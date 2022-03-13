@@ -76,7 +76,7 @@ asyncLoadModel(model_url);
 async function asyncLoadModel(model_url) {
     import * as tf from '@tensorflow/tfjs';
 	model = await tf.loadGraphModel(model_url);
-    console.log('Model loaded');
+    console.log('Model 2 loaded');
     
 	//Enable start button:
     enableWebcamButton.classList.remove('invisible');
