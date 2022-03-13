@@ -12,7 +12,6 @@ var yStart = 0;
 
 
 
-
 // Check if webcam access is supported.
 function getUserMediaSupported() {
     return !!(navigator.mediaDevices &&
