@@ -79,7 +79,7 @@ const model = await tf.loadLayersModel(model_url);
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = '3D';
+    enableWebcamButton.innerHTML = model_url.substr(0,15)+'3E';
 }
 
 //reference https://stackoverflow.com/questions/53639919/load-tensorflow-js-model-from-local-file-system-in-javascript
