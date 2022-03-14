@@ -64,7 +64,8 @@ function enableCam(event) {
 
 
 var model = undefined;
-model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
+//model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
+model_url = 'https://metatatt.github.io/model/mobile_netv2/web_model2/model.json';
 //Call load function
 asyncLoadModel(model_url);
 
@@ -74,7 +75,7 @@ async function asyncLoadModel(model_url) {
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = 'Simon2';
+    enableWebcamButton.innerHTML = 'Simon3';
 }
 
 //reference https://stackoverflow.com/questions/53639919/load-tensorflow-js-model-from-local-file-system-in-javascript
