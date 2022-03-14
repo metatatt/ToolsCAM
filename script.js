@@ -74,9 +74,14 @@ async function asyncLoadModel(model_url) {
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = 'Simon Go';
+    enableWebcamButton.innerHTML = 'Simon2';
 }
 
+//reference https://stackoverflow.com/questions/53639919/load-tensorflow-js-model-from-local-file-system-in-javascript
+//const tf = require("@tensorflow/tfjs");
+//const tfn = require("@tensorflow/tfjs-node");
+//const handler = tfn.io.fileSystem("./path/to/your/model.json");
+//const model = await tf.loadLayersModel(handler);
 
 
 var children = [];
@@ -144,7 +149,7 @@ const width_ = (maxX-minX).toFixed(0);
         if (score > 70 && score < 100){
             const highlighter = document.createElement('div');
             highlighter.setAttribute('class', 'highlighter');
-            highlighter.style = 'left: ' + minX + 'px; ' +
+            highlighter.style = 'left: ' + minX+ 20 + 'px; ' +  //move to center
                 'top: ' + minY + 'px; ' +
                 'width: ' + width_ + 'px; ' +
                 'height: ' + height_ + 'px;';
