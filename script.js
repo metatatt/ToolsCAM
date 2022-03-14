@@ -71,15 +71,11 @@ asyncLoadModel(model_url);
 
 //Function Loads the GraphModel type model of
 async function asyncLoadModel(model_url) {
-const tf = require("@tensorflow/tfjs");
-const tfn = require("@tensorflow/tfjs-node");
-const handler = tfn.io.fileSystem("./path/to/your/model.json");
-const model = await tf.loadLayersModel(model_url);
-    //model = await tf.loadGraphModel(model_url);
+model = await tf.loadGraphModel(model_url);
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = model_url.substr(0,15)+'3E';
+    enableWebcamButton.innerHTML = model_url.substr(0,15)+'3f';
 }
 
 //reference https://stackoverflow.com/questions/53639919/load-tensorflow-js-model-from-local-file-system-in-javascript
