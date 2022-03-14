@@ -137,7 +137,7 @@ function renderPredictionBoxes (predictionBoxes, predictionClasses, predictionSc
     }
     children.splice(0);
 //Loop through predictions and draw them to the live view if they have a high confidence score.
-    for (let i = 0; i < 30; i++) {  //original value i < 90
+    for (let i = 0; i < 90; i++) {  
 //If we are over 66% sure we are sure we classified it right, draw it!
         const minY = (predictionBoxes[i * 4] * vidHeight+yStart).toFixed(0);
         const minX = (predictionBoxes[i * 4 + 1] * vidWidth+xStart).toFixed(0);
