@@ -65,24 +65,18 @@ function enableCam(event) {
 
 var model = undefined;
 model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
-//model_url = 'https://metatatt.github.io/model/mobile_netv2/web_model2/model_try.json';
 //Call load function
 asyncLoadModel(model_url);
 
 //Function Loads the GraphModel type model of
 async function asyncLoadModel(model_url) {
-model = await tf.loadGraphModel(model_url);
+    model = await tf.loadGraphModel(model_url);
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = model_url.substr(0,40)+'3f';
-}
+    enableWebcamButton.innerHTML =model_url.substr(0,30)+' Simon Go';
+} 
 
-//reference https://stackoverflow.com/questions/53639919/load-tensorflow-js-model-from-local-file-system-in-javascript
-//const tf = require("@tensorflow/tfjs");
-//const tfn = require("@tensorflow/tfjs-node");
-//const handler = tfn.io.fileSystem("./path/to/your/model.json");
-//const model = await tf.loadLayersModel(handler);
 
 
 var children = [];
@@ -137,7 +131,7 @@ function renderPredictionBoxes (predictionBoxes, predictionClasses, predictionSc
     }
     children.splice(0);
 //Loop through predictions and draw them to the live view if they have a high confidence score.
-    for (let i = 0; i < 90; i++) {  
+    for (let i = 0; i < 99; i++) {
 //If we are over 66% sure we are sure we classified it right, draw it!
         const minY = (predictionBoxes[i * 4] * vidHeight+yStart).toFixed(0);
         const minX = (predictionBoxes[i * 4 + 1] * vidWidth+xStart).toFixed(0);
@@ -150,7 +144,7 @@ const width_ = (maxX-minX).toFixed(0);
         if (score > 70 && score < 100){
             const highlighter = document.createElement('div');
             highlighter.setAttribute('class', 'highlighter');
-            highlighter.style = 'left: ' + minX+ 20 + 'px; ' +  //move to center
+            highlighter.style = 'left: ' + minX + 'px; ' +
                 'top: ' + minY + 'px; ' +
                 'width: ' + width_ + 'px; ' +
                 'height: ' + height_ + 'px;';
