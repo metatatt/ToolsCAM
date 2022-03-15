@@ -74,8 +74,8 @@ async function asyncLoadModel(model_url) {
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML =model_url.substr(0,30)+' Simon';
-} 
+    enableWebcamButton.innerHTML = 'Start camera says Simon';
+}
 
 
 
@@ -117,7 +117,9 @@ async function detectTFMOBILE(imgToPredict) {
     smallImg.dispose();
     resized.dispose();
     tf4d.dispose();
+    
 }
+
 
 
 //Function Renders boxes around the detections:
@@ -136,8 +138,7 @@ function renderPredictionBoxes (predictionBoxes, predictionClasses, predictionSc
         const maxY = (predictionBoxes[i * 4 + 2] * vidHeight+yStart).toFixed(0);
         const maxX = (predictionBoxes[i * 4 + 3] * vidWidth+xStart).toFixed(0);
         const score = predictionScores[i * 3] * 100;
-        const pClass = predictionClassess[i];
-        const width_ = (maxX-minX).toFixed(0);
+const width_ = (maxX-minX).toFixed(0);
         const height_ = (maxY-minY).toFixed(0);
 //If confidence is above 70%
         if (score > 70 && score < 100){
@@ -147,7 +148,7 @@ function renderPredictionBoxes (predictionBoxes, predictionClasses, predictionSc
                 'top: ' + minY + 'px; ' +
                 'width: ' + width_ + 'px; ' +
                 'height: ' + height_ + 'px;';
-            highlighter.innerHTML = '<p>   '+Math.round(score) + '% ' +'<br>'+'Your Object Name: '+pClass+'</p>';
+            highlighter.innerHTML = '<p>'+Math.round(score) + '% ' + 'found something...'+'</p>';
             liveView.appendChild(highlighter);
             children.push(highlighter);
         }
