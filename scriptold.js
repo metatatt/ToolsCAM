@@ -64,14 +64,18 @@ function enableCam(event) {
 
 
 var model = undefined;
-model_url = "https://teachablemachine.withgoogle.com/models/RInNL6GET/model.json";
+model_url = 'https://teachablemachine.withgoogle.com/models/RInNL6GET/model.json';
+metadata_url = 'https://teachablemachine.withgoogle.com/models/RInNL6GET/metatdata.json';
 //Call load function
-asyncLoadModel(model_url);
+asyncLoadModel(model_url,metadata_url);
 
 //Function Loads the GraphModel type model of
-async function asyncLoadModel(model_url) {
-    model = await tf.loadGraphModel(model_url);
-    console.log('Model loaded');
+async function asyncLoadModel(model_url,metadata_url) {
+    //model = await tf.loadGraphModel(model_url);
+	model = await tmImage.load(modelURL, metadataURL);
+	maxPredictions = model.getTotalClasses();
+	
+    //console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
 <<<<<<< HEAD
