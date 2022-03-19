@@ -74,7 +74,11 @@ async function asyncLoadModel(model_url) {
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
+<<<<<<< HEAD
     enableWebcamButton.innerHTML = 'Simon-2';
+=======
+    enableWebcamButton.innerHTML = 'Start camera says Simon';
+>>>>>>> 7ccdab0614a5a346cf918f9b9d62e4fb6e37e78e
 }
 
 
@@ -148,7 +152,7 @@ const width_ = (maxX-minX).toFixed(0);
                 'top: ' + minY + 'px; ' +
                 'width: ' + width_ + 'px; ' +
                 'height: ' + height_ + 'px;';
-            highlighter.innerHTML = '<p>   '+Math.round(score) + '% ' +'<br>'+'Your Object Name'+'</p>';
+            highlighter.innerHTML = '<p>'+Math.round(score) + '% ' + 'found something...'+'</p>';
             liveView.appendChild(highlighter);
             children.push(highlighter);
         }
