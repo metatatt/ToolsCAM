@@ -74,7 +74,7 @@ async function asyncLoadModel(model_url) {
     console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-    enableWebcamButton.innerHTML = 'Simon Go';
+    enableWebcamButton.innerHTML = 'Simon-2';
 }
 
 
@@ -144,7 +144,7 @@ const width_ = (maxX-minX).toFixed(0);
         if (score > 70 && score < 100){
             const highlighter = document.createElement('div');
             highlighter.setAttribute('class', 'highlighter');
-            highlighter.style = 'left: ' + minX + 'px; ' +
+            highlighter.style = 'left: ' + minX+20 + 'px; ' +
                 'top: ' + minY + 'px; ' +
                 'width: ' + width_ + 'px; ' +
                 'height: ' + height_ + 'px;';
