@@ -41,11 +41,11 @@ class WebRtcSB
     constructor(constraints = {
 		audio: false,
 		video: {
-			width: { ideal: 960px },
-			height: { ideal: 1280px },
+			width: 960,
+			height:1280,
       //width: { min: 1024, ideal: window.innerWidth, max: 1920 },
       //height: { min: 776, ideal: window.innerHeight, max: 1080 },
-			facingMode: facingMode: { exact: "environment" },},}
+			facingMode: {exact: "environment" },},}
 	  )
 	
     {
