@@ -1,62 +1,59 @@
-# Mobile (and Desktop) Camera App Template (HTML, CSS, JS and WebRTC)
+# WebRtcShitBlt
 
-Release 17-05-2020: Replaced DetectRTC with own code to solve a bug on iOS 13.4.1
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/webrtcshitblt)
+#### Live demo at https://asafrob.github.io/WebRtcShitBlt/
 
-I like to experiment with Computer Vision and AI API's (like Azure Cognetive Services, Google Cloud Vision, IBM Watson) to see if I can utilise them for some ideas.
+image show a smaple use of a video captured by WebRTC with an embeded image (brown/yellow) on the top left corner<br/>
+![alt text](preview.png "sample screen of using the lib with default image")
 
-The most easy way to test those scripts and APIs them is by directly making a photo and sending image data to the API/script, instead of uploading files. I didn't find a fast mobile first camera template for HTML5 as a starting point for my prototypes, so I developed one myself. The interface setup is mainly inspired by the standard Android and iOS Cameras.
+### what does it do ?
+This library wraps a WebRTC source and returns a MediaStream that can be used as a normal MediaStream u get from navigator.mediaDevices.getUserMedia.<br/>
+The returned MediaStream will have your selected image embeded in the video stream.
 
-The template doesn't do anything with the image(canvas) data yet, I'll leave that up to you.
-If you need help with integrations or app development (PHP, Vue), feel free to contact me.
+### common usecases
+* logo
+* watermark
+* image extracted from a presentation
 
-Feel free to use it in your next Computer Vision or AI project.
+### how does it work
+The code creates an hidden video element and an hidden canvas element<br/>
+The original MediaStream is played on the hidden video element.<br/>
+The video element is sampled for images, which are drawn to the hidden canvas.<br/>
+The logo image is also being drawn to the canvas.<br/>
+Canvas MediaStream is returned to the calling app.
 
-### Requirements
+### Sample code
+```javascript
+        // the constanint object defaults to {video: true, audio: true} but to save u the echo...
+        var sb = new WebRtcSB({video:{width:640, height:480}, audio: false});
+        // create manipulation objects. they will be processed in the order you supply them.
+        // in current live demo u will get 4 images
+        var imgCopy = new ImageCopy();
+        var imgAdd = new ImageAdd('sb.png', 10, 10, 50, 50);
+        sb.setManipulators([imgCopy, imgAdd]);
 
-- WebRTC is only supported on secure connections. So you need to serve it from https.
-  _You can test and debug in Chrome from localhost though (this doesn't work in Safari)._
+        sb.sbStartCapture()
+            .then((stream)=>{
+            document.getElementById('myVideo').srcObject = stream;
+        })
+```
 
-- A recent OS and browser. It should work on recent Phones and OS-es. If it isn't, please
-  let me know (issue) (including a suggestion to fix it). Also add the debugging info in the console.
+### Note
+* this library is based on ES6
 
-### Functionalities
+### Tested on
+* chrome 63 (OS X)
+* FireFox 57 (OS X)
+* Safari 11.0.3 (OS X)
 
-- Fullscreen mode (not on Safari mobile (iOS))
-- Take Photo
-- Flip Camera (environment / user)
-- Supports both portrait and landscape mode
+### Roadmap
+* test & support other browsers/OSs
+* implement more plugins
 
-**Check the [demo](https://demo.kasperkamperman.com/mobilecamtemplate/)**
-
-## Used Libraries:
-
-- Fullscreen functionality: [Screenfull.js](https://github.com/sindresorhus/screenfull.js/)
-- WebRTC cross-browser: [Adapter.js](https://github.com/webrtc/adapter)
-- UI click sound: [Howler.js](https://howlerjs.com)
-
-## Used Assets:
-
-- ["Basic Click Wooden"](https://freesound.org/people/GameAudio/sounds/220200/) - by [GameAudio](https://www.gameaudio101.com)
-- [Material Design Icons](https://material.io/icons/) (camera front, camera rear, photo camera, fullscreen, fullscreen exit)
-
-## Tested with:
-
-- Chrome Android 8.0 (Nokia 5)
-- Chrome 65 - Chrome 80
-- Safari 11.0.3, 13.1
-- Safari mobile - iOS 11, iOS 12, iOS 13.4.1
-
-## Created by
-
-[Kasper Kamperman](https://www.kasperkamperman.com/blog/camera-template/)
-
-Credits and a link to my website are always appreciated.
-I'm always curious how people end up using my stuff, so
-feel free to [mail](https://www.kasperkamperman.com/contact/) or [send a tweet @kasperkamperman](https://twitter.com/kasperkamperman).
-
-## Good WebRTC resources
-
-- https://webrtc.github.io/samples/
-- https://www.webrtc-experiment.com/
-- https://www.html5rocks.com/en/tutorials/getusermedia/intro/
-- https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
+### Versions history
+####1.0.0
+initial release
+####1.0.1
+workaround for safari -  instead of an hidden video element use a 1px*1px video element
+####1.0.2
+support iOS 11
