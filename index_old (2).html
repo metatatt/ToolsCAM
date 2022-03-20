@@ -1,0 +1,30 @@
+<script src="WebRtcShitBlt.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<script>
+
+    function init(){
+        var sb = new WebRtcSB();
+        var imgCopy = new ImageCopy();
+        var imgAdd = new ImageAdd('sb.png', 10, 10, 50, 50);
+        var imgAdd2 = new ImageAdd('sb.png', 580, 10, 50, 50);
+        var imgAdd3 = new ImageAdd('sb.png', 10, 420, 50, 50);
+        var imgAdd4 = new ImageAdd('sb.png', 580, 420, 50, 50);
+        sb.setManipulators([imgCopy, imgAdd, imgAdd2, imgAdd3, imgAdd4]);
+
+        sb.sbStartCapture()
+            .then((stream)=>{
+            document.getElementById('myVideo').srcObject = stream;
+        })
+    }
+</script>
+<head>
+</head>
+<body onload="init();">
+<h1>WebRtcShitBlt sample app</h1>
+<div>
+    <video id="myVideo" autoplay playsinline style="width: 960px;height: 1280px;border-style: solid"></video>
+</div>
+</body>
+</html>
