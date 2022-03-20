@@ -21,8 +21,8 @@ class ImageAdd extends ImageManipulate
     constructor(imagePath = 'sb.png',
                 imagePosX = 10,
                 imagePosY = 10,
-                imageWidth = 50,
-                imageHeight = 50)
+                imageWidth = 250,
+                imageHeight = 250)
     {
         super();
         this._myImage = new Image();
@@ -32,7 +32,8 @@ class ImageAdd extends ImageManipulate
 
     manipulate(canvasContext, hiddenVideoElement)
     {
-        canvasContext.drawImage(this._myImage, this._imagePos.X, this._imagePos.Y, this._imagePos.W, this._imagePos.H);
+        canvasContext.drawImage(this._myImage, 200, 200, this._imagePos.W, this._imagePos.H); //this._imagePos.X, this._imagePos.Y
+
     }
 }
 
@@ -42,7 +43,7 @@ class WebRtcSB
 		audio: false,
 		video: {
 			width: { ideal: 960px },
-			height: { ideal: 1280px },
+			height: { ideal: 1920px },
       //width: { min: 1024, ideal: window.innerWidth, max: 1920 },
       //height: { min: 776, ideal: window.innerHeight, max: 1080 },
 			facingMode: facingMode: { exact: "environment" },},}
@@ -101,6 +102,8 @@ class WebRtcSB
         this._hiddenCanvasElement.setAttribute("height", '0');
         document.body.appendChild(this._hiddenCanvasElement);
         this._sbVidContext = this._hiddenCanvasElement.getContext("2d");
+		this._sbVidContext = this._sbVidContext.strokeText("Hello World!", 210, 250); //Simon
+		
     }
     
     _sendImageToCanvas()
