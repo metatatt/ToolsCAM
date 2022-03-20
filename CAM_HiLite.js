@@ -1,7 +1,4 @@
 //Store hooks and video sizes:
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-
 const video = document.getElementById('webcam');
 const liveView = document.getElementById('liveView');
 const demosSection = document.getElementById('demos');
@@ -67,25 +64,17 @@ function enableCam(event) {
 
 
 var model = undefined;
-model_url = 'https://teachablemachine.withgoogle.com/models/RInNL6GET/model.json';
-metadata_url = 'https://teachablemachine.withgoogle.com/models/RInNL6GET/metatdata.json';
+model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
 //Call load function
-asyncLoadModel(model_url,metadata_url);
+asyncLoadModel(model_url);
 
 //Function Loads the GraphModel type model of
-async function asyncLoadModel(model_url,metadata_url) {
-    //model = await tf.loadGraphModel(model_url);
-	model = await tmImage.load(modelURL, metadataURL);
-	maxPredictions = model.getTotalClasses();
-	
-    //console.log('Model loaded');
+async function asyncLoadModel(model_url) {
+    model = await tf.loadGraphModel(model_url);
+    console.log('Model loaded');
     //Enable start button:
     enableWebcamButton.classList.remove('invisible');
-<<<<<<< HEAD
-    enableWebcamButton.innerHTML = model_url+' Si2';
-=======
-    enableWebcamButton.innerHTML = 'Start camera says Simon';
->>>>>>> 7ccdab0614a5a346cf918f9b9d62e4fb6e37e78e
+    enableWebcamButton.innerHTML = 'Simon Go';
 }
 
 
@@ -155,11 +144,11 @@ const width_ = (maxX-minX).toFixed(0);
         if (score > 70 && score < 100){
             const highlighter = document.createElement('div');
             highlighter.setAttribute('class', 'highlighter');
-            highlighter.style = 'left: ' + minX+20 + 'px; ' +
+            highlighter.style = 'left: ' + minX + 'px; ' +
                 'top: ' + minY + 'px; ' +
                 'width: ' + width_ + 'px; ' +
                 'height: ' + height_ + 'px;';
-            highlighter.innerHTML = '<p>'+Math.round(score) + '% ' + 'found something...'+'</p>';
+            highlighter.innerHTML = '<p>   '+Math.round(score) + '% ' +'<br>'+'Your Object Name'+'</p>';
             liveView.appendChild(highlighter);
             children.push(highlighter);
         }

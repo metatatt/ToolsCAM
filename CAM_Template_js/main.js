@@ -207,37 +207,21 @@ function initCameraStream() {
     .catch(handleError);
 
   function handleSuccess(stream) {
-   //window.stream = stream; // make stream available to browser console
-   //video.srcObject = stream;
-   //if (constraints.video.facingMode) {
-   //  if (constraints.video.facingMode === 'environment') {
-   //   switchCameraButton.setAttribute('aria-pressed', true);
-   //  } else {
-   //     switchCameraButton.setAttribute('aria-pressed', false);
-   //  }
-   //}
+    window.stream = stream; // make stream available to browser console
+    video.srcObject = stream;
 
-    //const track = window.stream.getVideoTracks()[0];
-    //const settings = track.getSettings();
-    //str = JSON.stringify(settings, null, 4);
-    //console.log('settings ' + str);
-		
-	//第三方
-	let hiddenVideo = document.querySelector('video.hidden') // A video that is not displayed to the user 
-    hiddenVideo.srcObject = mediaStream // Play the stream on the hidden video
-    let canvas = document.querySelector('canvas'); // Get a canvas element, by creating or querying it (it may be hidden using 'display:none')
-    let ctx = canvas.getContext('2d');
-    let rVFC = () => {
-      ctx.drawImage(hiddenVideo, 0, 0, 480, 640); // Draw the video image on your canvas
-        // ... Manipulate your canvas here ...
-    hiddenVideo.requestVideoFrameCallback(rVFC)
+    if (constraints.video.facingMode) {
+      if (constraints.video.facingMode === 'environment') {
+        switchCameraButton.setAttribute('aria-pressed', true);
+      } else {
+        switchCameraButton.setAttribute('aria-pressed', false);
+      }
     }
-    hiddenVideo.requestVideoFrameCallback(rVFC)
-    
-    var video = document.querySelector('video.shown');
-    video.srcObject = canvas.captureStream(); // Display the canvas edit on the video
-	
-	//以上是改的
+
+    const track = window.stream.getVideoTracks()[0];
+    const settings = track.getSettings();
+    str = JSON.stringify(settings, null, 4);
+    console.log('settings ' + str);
   }
 
   function handleError(error) {
