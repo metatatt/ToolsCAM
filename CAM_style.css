@@ -34,8 +34,10 @@ body {
   right: 0;
   bottom: 0;
 
-  z-index: 10;
-  background-color: #111;
+ /* 原本是10， 我改成1
+  z-index: 10; */
+  z-index: 1;
+  background-color: rgba(221, 221, 221, 0.3);
 }
 
 /*  Button style from: 

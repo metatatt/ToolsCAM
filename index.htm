@@ -11,14 +11,19 @@
     />
     <meta name="keywords" content="HTML,CSS,JavaScript, WebRTC, Camera" />
     <meta name="author" content="Kasper Kamperman" />
-    <title>Mobile First Camera Template</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>TattCam</title>
+    <link rel="stylesheet" type="text/css" href="CAM_style.css" />
   </head>
   <body>
     <div id="container">
+	
+	<video class="hidden" style="display:none" controls autoplay></video> 
+    <video class="shown" controls autoplay></video>
+     <canvas style="display:none"></canvas>
+
       <div id="vid_container">
         <video id="video" autoplay playsinline></video>
-        <div id="video_overlay"></div>
+        <div id="video_overlay">See here Simon</div>
       </div>
       <div id="gui_controls">
         <button
@@ -36,9 +41,9 @@
         ></button>
       </div>
     </div>
-    <script src="js/adapter.min.js"></script>
-    <script src="js/screenfull.min.js"></script>
-    <script src="js/howler.core.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="CAM_js/adapter.min.js"></script>
+    <script src="CAM_js/screenfull.min.js"></script>
+    <script src="CAM_js/howler.core.min.js"></script>
+    <script src="CAM_js/main.js"></script>
   </body>
 </html>
