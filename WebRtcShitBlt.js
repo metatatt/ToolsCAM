@@ -38,7 +38,16 @@ class ImageAdd extends ImageManipulate
 
 class WebRtcSB
 {
-    constructor(constraints = {video: true, audio: true})
+    constructor(constraints = {
+		audio: false,
+		video: {
+			width: { ideal: 960px },
+			height: { ideal: 1280px },
+      //width: { min: 1024, ideal: window.innerWidth, max: 1920 },
+      //height: { min: 776, ideal: window.innerHeight, max: 1080 },
+			facingMode: facingMode: { exact: "environment" },},}
+	  )
+	
     {
         this._constraints = constraints;
         this._createHiddenVideoElement();
