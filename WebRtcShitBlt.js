@@ -102,7 +102,7 @@ class WebRtcSB
         this._hiddenCanvasElement.setAttribute("height", '0');
         document.body.appendChild(this._hiddenCanvasElement);
         this._sbVidContext = this._hiddenCanvasElement.getContext("2d");
-		this._sbVidContext = this._sbVidContext.strokeText("Hello World!", 210, 250); //Simon
+		this._sbVidContext.strokeText("Hello World!", 210, 250); //Simon
 		
     }
     
