@@ -66,8 +66,8 @@ function enableCam(event) {
 var model = undefined;
 // original model_url = 'https://raw.githubusercontent.com/KostaMalsev/ImageRecognition/master/model/mobile_netv2/web_model2/model.json';
 // new model from Simon
-
-model_url = 'https://raw.githubusercontent.com/metatatt/metatatt.github.io/main/model/model.json';
+//model_url = 'https://raw.githubusercontent.com/metatatt/metatatt.github.io/main/model/model.json';
+model_url = 'https://raw.githubusercontent.com/metatatt/metatatt.github.io/main/model/js_model/model.json';
 
 //Call load function
 asyncLoadModel(model_url);
