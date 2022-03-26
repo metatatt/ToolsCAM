@@ -10,16 +10,11 @@
 <h1>Teachable Machine</h1>
 <h2>The onclick Event</h2>
 
-<p>Use the addEventListener() method to attach a "click" event to a p element:</p>
+<button onclick="getElementById('text_holder').innerHTML=Date()">What is the time?</button>
 
-<p id="demo">Click me.</p>
+<p id="text_holder"></p>
 
 <script>
-document.getElementById("demo").addEventListener("click", myFunction);
-
-function myFunction() {
- 
-document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
 
 <button type="button" onclick="init()">Start</button>
 <script type="text/javascript">
@@ -34,7 +29,7 @@ document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
     let model, webcam, labelContainer, maxPredictions;
 
     // Load the image model and setup the webcam
-    async function init() {
+ async function init() {
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
 
@@ -57,9 +52,8 @@ document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
         labelContainer = document.getElementById("label-container");
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
-        }
     }
-
+    
     async function loop() {
         webcam.update(); // update the webcam frame
         await predict();
