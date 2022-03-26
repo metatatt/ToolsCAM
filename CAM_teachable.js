@@ -8,7 +8,7 @@
     // More API functions here:
     // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
-document.write("S1");
+console.log('JS - point 1');
 
     // the link to your model provided by Teachable Machine export panel
     const URL = "https://teachablemachine.withgoogle.com/models/jfKOcOpUo/";
@@ -27,7 +27,8 @@ document.write("S1");
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
 
-document.write("Simon 2");
+console.log('JS - point 2');
+
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
