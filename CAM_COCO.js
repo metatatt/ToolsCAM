@@ -85,7 +85,7 @@ function setup() {
   createCanvas(960, 1280);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
-  video.size(960, 1280);
+  //video.size(960, 1280);
   video.hide();
   detector.detect(video, gotDetections);
 }
