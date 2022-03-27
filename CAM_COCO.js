@@ -33,7 +33,7 @@ function gotDetections(error, results) {
     }
   }
 
-  for (let i = 0; i < results.length; i++) {
+  for (let i = 0; i < Math.min(2 , results.length); i++) {
     let object = results[i];
     let label = object.label;
 
