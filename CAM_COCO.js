@@ -12,7 +12,8 @@ let video;
 let detector;
 let detections = {};
 let idCount = 0;
-let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
+let constraints = {audio: false, video: {facingMode: {exact: "environment"}, width: 960,
+        height: 1280}};
 
 function preload() {
   // img = loadImage('dog_cat.jpg');
