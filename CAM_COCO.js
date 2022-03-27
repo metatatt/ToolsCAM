@@ -80,10 +80,10 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(960, 1280);
   //video = createCapture(VIDEO);
   video = createCapture({audio: false, video: {facingMode: {exact: "environment"}}});
-  video.size(displayWidth, displayHeight);
+  video.size(960, 1280);
   video.hide();
   detector.detect(video, gotDetections);
 }
