@@ -12,8 +12,7 @@ let video;
 let detector;
 let detections = {};
 let idCount = 0;
-let constraints = {audio: false, video: {facingMode: {exact: "environment"}, width: 960,
-        height: 1280}};
+let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
 
 function preload() {
   // img = loadImage('dog_cat.jpg');
@@ -82,10 +81,10 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(960, 1280);
+  createCanvas(640, 480);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
-  video.size(960, 1280);
+  video.size(640, 480);
   video.hide();
   detector.detect(video, gotDetections);
 }
