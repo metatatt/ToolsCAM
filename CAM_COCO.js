@@ -81,10 +81,10 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(640, 640);
+  createCanvas(640, 480);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
-  video.size(640, 640);
+  video.size(640, 480);
   video.hide();
   detector.detect(video, gotDetections);
 }
