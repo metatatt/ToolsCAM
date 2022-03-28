@@ -12,12 +12,10 @@ let video;
 let detector;
 let detections = {};
 let idCount = 0;
-let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
 
 function preload() {
   // img = loadImage('dog_cat.jpg');
   detector = ml5.objectDetector('cocossd');
-    console.log("COCO-SSD");
 }
 
 function gotDetections(error, results) {
@@ -82,10 +80,10 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(640,480);
   //video = createCapture(VIDEO);
-  video = createCapture(constraints);
-  video.size(480, 640);
+  video = createCapture({audio: false, video: {facingMode: {exact: "environment"}}});
+  video.size(640,480);
   video.hide();
   detector.detect(video, gotDetections);
 }
@@ -106,7 +104,7 @@ function draw() {
         noStroke();
         fill(0);
         textSize(32);
-        text(object.label + " " + object.x, object.x + 10, object.y + 24); //object.label + " " + object.id
+        text(object.label + " " + object.id, object.x + 10, object.y + 24);
       }
       object.timer -= 2;
       if (object.timer < 0) {
