@@ -20,13 +20,6 @@ function preload() {
     console.log("COCO-SSD");
 }
 
-//w.value
-function showWidth(){
-    let w.value = $(window).width();
-    let h.value = $(window).height();
-    console.log("w value "+w.value);
-}
-
 function gotDetections(error, results) {
   if (error) {
     console.error(error);
@@ -89,10 +82,10 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(w.value, h.value);
+  createCanvas(640, 480);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
-  video.size(w.value, h.value);
+  video.size(480, 640);
   video.hide();
   detector.detect(video, gotDetections);
 }
