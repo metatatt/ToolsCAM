@@ -32,7 +32,7 @@ function gotDetections(error, results) {
     }
   }
 
-  for (let i = 0; i < Math.min(2 , results.length); i++) {
+  for (let i = 0; i < results.length; i++) {
     let object = results[i];
     let label = object.label;
 
@@ -81,7 +81,7 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(1008, 1583);
+  createCanvas(640, 1200);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
   video.size(1008, 1583);
