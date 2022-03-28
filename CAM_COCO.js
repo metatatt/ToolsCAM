@@ -23,7 +23,7 @@ function preload() {
 function load(){
     let w.value = $(window).width();
     let h.value = $(window).height();
-    console.log("w value "+a);
+    console.log("w value "+w.value);
 }
 
 function gotDetections(error, results) {
