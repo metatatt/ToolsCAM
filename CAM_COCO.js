@@ -90,13 +90,12 @@ function setup() {
 }
 
 function draw() {
-  image(video, 0, 0);
+  image(video, 40, 100);
 
   let labels = Object.keys(detections);
   for (let label of labels) {
     let objects = detections[label];
-    //for (let i = objects.length - 1; i >= 0; i--) {
-    for (let i = 2; i >= 0; i--) {
+    for (let i = objects.length - 1; i >= 0; i--) {
       let object = objects[i];
       if (object.label !== "person") {
         stroke(0, 255, 0);
