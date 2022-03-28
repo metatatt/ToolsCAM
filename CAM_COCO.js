@@ -19,6 +19,13 @@ function preload() {
   detector = ml5.objectDetector('cocossd');
 }
 
+//w.value
+function load(){
+    let w.value = $(window).width();
+    let h.value = $(window).height();
+    console.log("w value "+a);
+}
+
 function gotDetections(error, results) {
   if (error) {
     console.error(error);
@@ -81,10 +88,10 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(1008, 1508);
+  createCanvas(w.value, h.value);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
-  video.size(1000, 1500);
+  video.size(w.value, h.value);
   video.hide();
   detector.detect(video, gotDetections);
 }
