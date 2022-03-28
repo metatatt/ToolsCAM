@@ -17,10 +17,11 @@ let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
 function preload() {
   // img = loadImage('dog_cat.jpg');
   detector = ml5.objectDetector('cocossd');
+    console.log("COCO-SSD");
 }
 
 //w.value
-function load(){
+function showWidth(){
     let w.value = $(window).width();
     let h.value = $(window).height();
     console.log("w value "+w.value);
