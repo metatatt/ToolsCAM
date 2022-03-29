@@ -5,7 +5,9 @@
   
   // Video
   let CAMvideo;
-  let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
+  //let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
+  let constraints = {audio: false, video: true};
+
   let flippedVideo;
   // To store the classification
   let label = "";
