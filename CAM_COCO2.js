@@ -4,9 +4,9 @@
   let imageModelURL = 'https://teachablemachine.withgoogle.com/models/jfKOcOpUo/';
   
   // Video
-  let CAMvideo;
+ // let capture;
   //let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
-  let constraints = {audio: false, video: true};
+  //let constraints = {audio: false, video: true};
 
   let flippedVideo;
   // To store the classification
@@ -18,12 +18,17 @@
   }
 
   function setup() {
-    createCanvas(320, 260);
-    // Create the video
-    CAMvideo = createCapture(constraints);
-    CAMvideo.size(320, 240);
-    CAMvideo.hide();
-
+  createCanvas(displayWidth, displayHeight);
+  let constraints = {
+    audio: false,
+    video: {
+      facingMode: {
+        exact: "environment"
+      }
+    }
+  };
+  capture = createCapture(constraints);
+  capture.hide();
     // flippedVideo = ml5.flipImage(video);
     // Start classifying
     classifyVideo();
@@ -32,7 +37,7 @@
   function draw() {
     background(0);
     // Draw the video
-    image(CAMvideo, 0, 0);
+    image(capture, 0, 0);
 
     // Draw the label
     fill(255);
@@ -44,7 +49,7 @@
   // Get a prediction for the current video frame
   function classifyVideo() {
     //flippedVideo = ml5.flipImage(video)
-    classifier.classify(CAMvideo, gotResult);
+    classifier.classify(capture, gotResult);
     //flippedVideo.remove();
     //CAMvideo.remove();
 
