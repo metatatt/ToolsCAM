@@ -12,10 +12,18 @@ let video;
 let detector;
 let detections = {};
 let idCount = 0;
+let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
 
 function preload() {
   // img = loadImage('dog_cat.jpg');
   detector = ml5.objectDetector('cocossd');
+}
+
+//w.value
+function load(){
+    let w.value = $(window).width();
+    let h.value = $(window).height();
+    console.log("w value "+w.value);
 }
 
 function gotDetections(error, results) {
@@ -80,9 +88,10 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(640, 480);
-  video = createCapture(VIDEO);
-  video.size(640, 480);
+  createCanvas(w.value, h.value);
+  //video = createCapture(VIDEO);
+  video = createCapture(constraints);
+  video.size(w.value, h.value);
   video.hide();
   detector.detect(video, gotDetections);
 }
@@ -103,7 +112,7 @@ function draw() {
         noStroke();
         fill(0);
         textSize(32);
-        text(object.label + " " + object.id, object.x + 10, object.y + 24);
+        text(object.label + " " + object.x, object.x + 10, object.y + 24); //object.label + " " + object.id
       }
       object.timer -= 2;
       if (object.timer < 0) {
