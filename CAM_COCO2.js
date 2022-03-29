@@ -44,7 +44,7 @@
     //flippedVideo = ml5.flipImage(video)
     classifier.classify(CAMvideo, gotResult);
     //flippedVideo.remove();
-    CAMvideo.remove();
+    //CAMvideo.remove();
 
   }
 
