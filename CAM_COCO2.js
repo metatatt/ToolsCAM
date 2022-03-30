@@ -8,7 +8,7 @@
   //let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
   //let constraints = {audio: false, video: true};
 
-  let flippedVideo;
+  //let flippedVideo;
   // To store the classification
   let label = "";
 
@@ -63,8 +63,8 @@
       return;
     }
     // The results are in an array ordered by confidence.
+    label = results[0].probability*100+" % | "+windowWidth+" X "+windowHeight;
     console.log(results[0]);
-    label = results[0].label+"| "+windowWidth+" X "+windowHeight;
     // Classifiy again!
     classifyVideo();
   }
