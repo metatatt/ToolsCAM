@@ -68,7 +68,9 @@
       return;
     }
     // The results are in an array ordered by confidence.
-    label = results[0].label+"..."+results[0].probability+" in score | "+w+" X "+h;
+    label = results[0].label+"..."+results[0,1]+"..."+results[0,2]+"... in score\ 
+    \
+    window inner ="+w+" X "+h; 
     console.log(results[0]);
     // Classifiy again!
     classifyVideo();
