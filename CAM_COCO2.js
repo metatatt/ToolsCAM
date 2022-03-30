@@ -6,11 +6,11 @@
   let h = window.innerHeight;
   
   // Video
- // let capture;
+ let capture;
   //let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
   //let constraints = {audio: false, video: true};
 
-  //let flippedVideo;
+  let flippedVideo;
   // To store the classification
   let label = "";
 
@@ -30,6 +30,8 @@
     }
   };
   capture = createCapture(constraints);
+    
+  console.log('Capture ');
   capture.hide();
     // flippedVideo = ml5.flipImage(video);
     // Start classifying
@@ -39,6 +41,7 @@
   function draw() {
     background(0);
     // Draw the video
+    console.log('Draw Capture ');
     image(capture, 0, 0);
 
     // Draw the label
