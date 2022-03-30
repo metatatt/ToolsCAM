@@ -30,8 +30,8 @@
     }
   };
   capture = createCapture(constraints);
-    
-  console.log('Capture ');
+  capture.size(w,h);
+  console.log('Capture sized w * h ');
   capture.hide();
     // flippedVideo = ml5.flipImage(video);
     // Start classifying
@@ -39,10 +39,10 @@
   }
 
   function draw() {
-    background(0);
+    background(51);
     // Draw the video
     console.log('Draw Capture ');
-    image(capture, 0, 0);
+    image(capture, 0, 0, w, h);
 
     // Draw the label
     fill(255);
