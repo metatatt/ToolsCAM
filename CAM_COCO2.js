@@ -39,16 +39,16 @@
   }
 
   function draw() {
-    background(51);
+    background(255, 204, 0);
     // Draw the video
     console.log('Draw Capture ');
     image(capture, 0, 0, w, h);
 
     // Draw the label
     fill(255);
-    textSize(26);
+    textSize(46);
     textAlign(CENTER);
-    text(label, width / 2, height - 4);
+    text(label, w / 2, h / 2);
   }
 
   // Get a prediction for the current video frame
@@ -68,7 +68,7 @@
       return;
     }
     // The results are in an array ordered by confidence.
-    label = results[0].probability*100+" % | "+w+" X "+h;
+    label = results[0].score+" in score | "+w+" X "+h;
     console.log(results[0]);
     // Classifiy again!
     classifyVideo();
