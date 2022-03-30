@@ -18,7 +18,7 @@
   }
 
   function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windodwHeight);
   let constraints = {
     audio: false,
     video: {
@@ -64,7 +64,7 @@
     }
     // The results are in an array ordered by confidence.
     console.log(results[0]);
-    label = results[0].label+"| "+displayWidth+" \ "+displayHeight;
+    label = results[0].label+"| "+windowWidth+" X "+windowHeight;
     // Classifiy again!
     classifyVideo();
   }
