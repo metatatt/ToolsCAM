@@ -2,6 +2,8 @@
   let classifier;
   // Model URL
   let imageModelURL = 'https://teachablemachine.withgoogle.com/models/jfKOcOpUo/';
+  let w = window.innerWidth;
+  let h = window.innerHeight;
   
   // Video
  // let capture;
@@ -18,7 +20,7 @@
   }
 
   function setup() {
-  createCanvas(windowWidth, windodwHeight);
+  createCanvas(w, h);
   let constraints = {
     audio: false,
     video: {
@@ -63,7 +65,7 @@
       return;
     }
     // The results are in an array ordered by confidence.
-    label = results[0].probability*100+" % | "+windowWidth+" X "+windowHeight;
+    label = results[0].probability*100+" % | "+w+" X "+h;
     console.log(results[0]);
     // Classifiy again!
     classifyVideo();
