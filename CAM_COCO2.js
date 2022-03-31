@@ -68,7 +68,7 @@
       return;
     }
     // The results are in an array ordered by confidence.
-    label = results[0].label+"...in score"; 
+    label = results[0].label+" confidence: "+results[0].confidence; 
     console.log(results[0]);
     // Classifiy again!
     classifyVideo();
