@@ -68,7 +68,7 @@
       return;
     }
     // The results are in an array ordered by confidence.
-    label = results[0].label+" confidence: "+results[0].confidence; 
+    label = results[0].label+" prob%: "+results[0].confidence.toFixed(2)*100+ "\n" +results[1].label+"  prob%: "+results[1].confidence.toFixed(2)*100; 
     console.log(results[0]);
     // Classifiy again!
     classifyVideo();
