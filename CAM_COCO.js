@@ -5,8 +5,6 @@ let h = window.innerHeight;
 // set 
 let video;
 let vid_constraints = {
-		width: w,
-		height: h,
         facingMode: {exact: "environment"}
 		};
 let constraints = { audio: false, video: vid_constraints };
