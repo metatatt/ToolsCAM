@@ -4,10 +4,11 @@ let h = window.innerHeight;
 
 // set 
 let video;
-let vid_constraints= {
-    mandatory: {maxHeight: h, maxWidth: w},
-    facingMode: {exact: "environment"}
-};
+let video_constraints = {
+		width: { min: w, max: w },
+		height: { min: h, max: h },
+        facingMode: {exact: "environment"}
+		};
 let constraints = { audio: false, video: vid_constraints };
 
 // COCO dectector
@@ -108,8 +109,8 @@ function draw() {
         rect(object.x, object.y, object.width, object.height);
         noStroke();
         fill(0);
-        textSize(32);
-        text(object.label + " 机率 " + object.confidence.toFixed(2), object.x + 10, object.y + 24); //object.label + " " + object.id
+        textSize(52);
+        text(object.label + " (" + object.confidence.toFixed(2)+")", object.x + 10, object.y + 24); //object.label + " " + object.id
       }
       object.timer -= 2;
       if (object.timer < 0) {
