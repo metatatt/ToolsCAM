@@ -1,26 +1,3 @@
-// ml5.js: Object Detection with COCO-SSD (Webcam Persistance)
-// The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/learning/ml5/1.3-object-detection.html
-// https://youtu.be/QEzRxnuaZCk
-
-// p5.js Web Editor - Image: https://editor.p5js.org/codingtrain/sketches/ZNQQx2n5o
-// p5.js Web Editor - Webcam: https://editor.p5js.org/codingtrain/sketches/VIYRpcME3
-// p5.js Web Editor - Webcam Persistence: https://editor.p5js.org/codingtrain/sketches/Vt9xeTxWJ
-
-<!DOCTYPE html>
-<html>
-
-<head>
-  <H1> ml5.js: COCO-SSD (Webcam Persistance)</H1>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
-  <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js"></script>
-  <meta charset="utf-8" />
-
-</head>
-
-<body>
-<script>
- 
 // let img;
 let video;
 let detector;
@@ -31,13 +8,7 @@ let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
 function preload() {
   // img = loadImage('dog_cat.jpg');
   detector = ml5.objectDetector('cocossd');
-}
-
-//w.value
-function load(){
-    let w.value = $(window).width();
-    let h.value = $(window).height();
-    console.log("w value "+w.value);
+    console.log("COCO-SSD");
 }
 
 function gotDetections(error, results) {
@@ -102,10 +73,10 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(w.value, h.value);
+  createCanvas(640, 480);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
-  video.size(w.value, h.value);
+  video.size(480, 640);
   video.hide();
   detector.detect(video, gotDetections);
 }
@@ -135,8 +106,3 @@ function draw() {
     }
   }
 }
-
-</script>
-</body>
-
-</html>
