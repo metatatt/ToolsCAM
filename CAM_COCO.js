@@ -1,18 +1,13 @@
-// set full screen size
-let w = window.innerWidth;
-let h = window.innerHeight;
-
-// set 
+// let img;
 let video;
-let vid_constraints = {
-        facingMode: {exact: "environment"}
-		};
-let constraints = { audio: false, video: vid_constraints };
-
-// COCO dectector
 let detector;
 let detections = {};
 let idCount = 0;
+let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
+
+// let full screen
+let w = window.innerWidth;
+let h = window.innerHeight;
 
 function preload() {
   // img = loadImage('dog_cat.jpg');
@@ -107,8 +102,8 @@ function draw() {
         rect(object.x, object.y, object.width, object.height);
         noStroke();
         fill(0);
-        textSize(52);
-        text(object.label + " (" + object.confidence.toFixed(2)+")", object.x + 10, object.y + 24); //object.label + " " + object.id
+        textSize(32);
+        text(object.label + " -" + object.confidence.toFixed(2), object.x + 10, object.y + 24); //object.label + " " + object.id
       }
       object.timer -= 2;
       if (object.timer < 0) {
