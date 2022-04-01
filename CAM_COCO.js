@@ -5,6 +5,10 @@ let detections = {};
 let idCount = 0;
 let constraints = {audio: false, video: {facingMode: {exact: "environment"}}};
 
+// let full screen
+let w = window.innerWidth;
+let h = window.innerHeight;
+
 function preload() {
   // img = loadImage('dog_cat.jpg');
   detector = ml5.objectDetector('cocossd');
@@ -73,16 +77,18 @@ function gotDetections(error, results) {
 }
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(w, h);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
-  video.size(480, 640);
+  video.size(w, h);
   video.hide();
   detector.detect(video, gotDetections);
 }
 
 function draw() {
-  image(video, 0, 0);
+  
+  background(255, 204, 0);
+  image(video, 0, 0, w, h);
 
   let labels = Object.keys(detections);
   for (let label of labels) {
@@ -97,7 +103,7 @@ function draw() {
         noStroke();
         fill(0);
         textSize(32);
-        text(object.label + " " + object.x, object.x + 10, object.y + 24); //object.label + " " + object.id
+        text(object.label + " 机率 " + object.confidence.toFixed(2), object.x + 10, object.y + 24); //object.label + " " + object.id
       }
       object.timer -= 2;
       if (object.timer < 0) {
