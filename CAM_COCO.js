@@ -80,7 +80,7 @@ function setup() {
   createCanvas(w, h);
   //video = createCapture(VIDEO);
   video = createCapture(constraints);
-  video.size(w, h);
+  //video.size(w, h);
   video.hide();
   detector.detect(video, gotDetections);
 }
@@ -103,7 +103,7 @@ function draw() {
         noStroke();
         fill(0);
         textSize(32);
-        text(object.label + " -" + object.confidence.toFixed(2), object.x + 10, object.y + 24); //object.label + " " + object.id
+        text(object.label +"\n"+"prob" + object.confidence.toFixed(2), object.x + 10, object.y + 24); //object.label + " " + object.id
       }
       object.timer -= 2;
       if (object.timer < 0) {
