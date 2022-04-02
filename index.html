@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='UTF-8'/>
+	<meta name='viewport' content='width-device-width, initial-scale-1.0'/>
+	<meta http-equiv='X-UA-Compatible' content='ie-edge'/>
+	<itle>CAM</title>
+</head>
+
+<body>
+	<h1>DEMY课程-04/2022  </h1>
+	<h2>want to find out what Shavoo is? </h2>
+	<p>To find out, please click the button, the window will close in 5 sec </p>
+	<button onclick="newWindow()">click me</button>
+
+	<h2>see how array works </h2>
+	<p>UDEMY的课程，这个比价简单，又不让退款 </p>
+	<button onclick="functionArr()"> click me</button>
+
+<h2>--getElements---</h2>
+<div id='header'>这是 HEADER 这边有测试 getElementsByID</div>
+
+<div Class='header'>这是 HEADER 这边有测试 getElementsByClass</div>
+
+<!-- 这个功能在外部JS里面 -->
+<script src='array.js'></script> 
+
+<script>
+	function newWindow(){
+	let url = "https://dictionary.com/browse/shivoo?s=t"
+	let newWindow = window.open(url, "", "width=500, height=800");
+	
+	//set timeout
+
+	setTimeout( ()=>{
+	newWindow.close(); 
+	},5000 );
+	
+	}
+	
+	
+</script>
+
+</body>
+</html>
