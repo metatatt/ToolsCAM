@@ -2,7 +2,8 @@ const video = document.getElementById('webcam');
 const liveView = document.getElementById('liveView');
 const demosSection = document.getElementById('demos');
 const enableWebcamButton = document.getElementById('webcamButton');
-
+let xAdjust = 740/640;
+let yAdjust = 580/480;
 
 // Check if webcam access is supported.
 function getUserMediaSupported() {
@@ -78,16 +79,16 @@ function predictWebcam() {
         p.innerText = predictions[n].class  + ' - with ' 
             + Math.round(parseFloat(predictions[n].score) * 100) 
             + '% confidence.';
-        p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: '
-            + (predictions[n].bbox[1] - 10) + 'px; width: ' 
-            + (predictions[n].bbox[2] - 10) + 'px; top: 0; left: 0;';
+        p.style = 'margin-left: ' + predictions[n].bbox[0]* xAdjust + 'px; margin-top: '
+            + (predictions[n].bbox[1]* yAdjust - 10) + 'px; width: ' 
+            + (predictions[n].bbox[2]* xAdjust - 10) + 'px; top: 0; left: 0;';
 
         const highlighter = document.createElement('div');
         highlighter.setAttribute('class', 'highlighter');
-        highlighter.style = 'left: ' + predictions[n].bbox[0] + 'px; top: '
-            + predictions[n].bbox[1] + 'px; width: ' 
-            + predictions[n].bbox[2] + 'px; height: '
-            + predictions[n].bbox[3] + 'px;';
+        highlighter.style = 'left: ' + predictions[n].bbox[0] * xAdjust + 'px; top: '
+            + predictions[n].bbox[1] * yAdjust + 'px; width: ' 
+            + predictions[n].bbox[2] * xAdjust + 'px; height: '
+            + predictions[n].bbox[3] * yAdjust + 'px;';
 
         liveView.appendChild(highlighter);
         liveView.appendChild(p);
