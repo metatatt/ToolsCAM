@@ -47,7 +47,7 @@
 
     // Draw the label
     fill(255);
-    textSize(52);
+    textSize(46);
     textAlign(CENTER);
     text(label, w / 2, h / 2);
   }
