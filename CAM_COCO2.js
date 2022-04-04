@@ -69,8 +69,11 @@
       return;
     }
     // The results are in an array ordered by confidence.
-    label = results[0].label+ "\n" +" -confidence (%): "+results[0].confidence.toFixed(2)*100; 
-    console.log(results[0]);
+    if (results[0].confidence > 0.7){
+    label = results[0].label+ "\n" +" -confidence (%): "+results[0].confidence.toFixed(2)*100;
+    } else {
+    label = "scanning....";
+    }
     // Classifiy again!
     classifyVideo();
   }
