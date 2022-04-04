@@ -30,8 +30,8 @@ section {
 .camView {
   position: relative;
   float: left;
-  width: calc(100% - 20px);
-  height: 560px;
+  width: 960px;
+  height:1260px;
   margin: 10px;
   cursor: pointer;
 }
