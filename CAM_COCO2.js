@@ -1,7 +1,8 @@
   // Classifier Variable
   let classifier;
   // Model URL
-  let imageModelURL = 'https://teachablemachine.withgoogle.com/models/jfKOcOpUo/';
+ //let imageModelURL = 'https://teachablemachine.withgoogle.com/models/jfKOcOpUo/';
+  let imageModelURL = 'https://teachablemachine.withgoogle.com/models/pQn1hi6pC/'  //G drive Model 0404/2022
   let w = window.innerWidth;
   let h = window.innerHeight;
   
